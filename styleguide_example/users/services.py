@@ -26,6 +26,7 @@ def user_create(
 
 @transaction.atomic
 def user_update(*, user: BaseUser, data) -> BaseUser:
+    # 无副作用的字段
     non_side_effect_fields = ['first_name', 'last_name']
 
     user, has_updated = model_update(
